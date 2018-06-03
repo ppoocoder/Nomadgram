@@ -14,11 +14,11 @@ urlpatterns = [
 
     # User management
     url(r'^users/', include('nomadgram.users.urls', namespace='users')),
+    url(r'^images/', include('nomadgram.images.urls', namespace='images')), # images/urls.py 추가 
     url(r'^accounts/', include('allauth.urls')),
-
+    
     # Your stuff: custom urls includes go here
-
-
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

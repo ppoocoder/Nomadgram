@@ -5,23 +5,20 @@ from . import views
 app_name = 'users'
 urlpatterns = [
     url(
-        regex=r'^$',
-        view=views.UserListView.as_view(),
-        name='list'
+        regex=r'^explore/$',
+        view=views.ExploreUser.as_view(),
+        name='explore_users'
     ),
     url(
-        regex=r'^~redirect/$',
-        view=views.UserRedirectView.as_view(),
-        name='redirect'
+        regex=r'^(?P<user_id>\w+)/follow/$',
+        view=views.FollowUser.as_view(),
+        name='follow_user'
     ),
     url(
-        regex=r'^~update/$',
-        view=views.UserUpdateView.as_view(),
-        name='update'
+        regex=r'^(?P<user_id>\w+)/unfollow/$',
+        view=views.UnFollowUser.as_view(),
+        name='unfollow_user'
     ),
-    url(
-        regex=r'^(?P<username>[\w.@+-]+)/$',
-        view=views.UserDetailView.as_view(),
-        name='detail'
-    ),
+   
+   
 ]
